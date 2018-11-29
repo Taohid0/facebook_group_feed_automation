@@ -1,12 +1,22 @@
+from __future__ import absolute_import, unicode_literals
 from pprint import pprint
 import json
+
 import requests
 from io import BytesIO
 
 from django.utils import timezone
 from django.core import files
 
+from celery import shared_task
+
 from .models import Comment, CommentPhoto, Post, PostPhoto, FBUser
+
+USER_ACCESS_TOKEN = 'EAAFIGgZC66zIBAJKXYARnktZBOiub8Q3GSIckOiTuXrJAhnNAs4bdNeNqRu37aqkrjjvzZBKTfRMWVvqsv2MSowvOXT2glZCeG1tjrvtqQmfNvKRdXTrsCph2cheRARZCkDl3CBRvZBTbfEX3DJdLAB7kLRH5poVynjlB5XN1AXUOkTfXre7CnC8m0KR5fJK4ZD'
+parameters = {"access_token": USER_ACCESS_TOKEN}
+GROUP_ID = '1251085764934174'
+group_url = 'https://graph.facebook.com/{}/feed/?fields=id,from,message,created_time, updated_time, link,attachments,comments'.format(
+    GROUP_ID)
 
 app_id = '360751751162674'
 app_secret = '39ed89dcc91c44180b249230d31bc357'
@@ -15,6 +25,28 @@ url = "https://graph.facebook.com/oauth/access_token?grant_type=" \
       (app_id, app_secret)
 
 
+def start_saving_process():
+    response = requests.get(url=group_url, params=parameters)
+    data_dict = json.loads(response.content.decode("utf-8"))
+
+    data = data_dict.get("data")
+    # pprint(data)
+
+    for single_post in data:
+        post = save_post(single_post)
+
+        if not post:
+            continue
+
+        comments = single_post.get("comments")
+        if comments:
+            save_comments(comments, post.id)
+
+        if single_post.get("attachments"):
+            save_post_photos(single_post.get("attachments"), post.id)
+
+
+# @shared_task
 def save_post(post_data):
     message = post_data.get("message")
     user = post_data.get("from")
@@ -55,6 +87,7 @@ def save_post(post_data):
     return post_object
 
 
+# @shared_task
 def save_post_photos(attachments, post_id):
     photo_queryset = PostPhoto.objects.filter(post_id=post_id)
     old_photos_name = [i.name for i in photo_queryset]
@@ -62,7 +95,19 @@ def save_post_photos(attachments, post_id):
     photo_links_list = []
 
     attachment_list = attachments.get("data")
-    if attachment_list:
+
+    try:
+        for i in attachment_list:
+            media = i.get("media")
+            if media:
+                image = media.get("image")
+                if image:
+                    src = image.get("src")
+                    photo_links_list.append(src)
+    except Exception as ex:
+        print(ex)
+
+    try:
         for attachment in attachment_list:
             sub_attachments = attachment.get("subattachments")
 
@@ -78,20 +123,21 @@ def save_post_photos(attachments, post_id):
 
                             if image:
                                 src = image.get("src")
-                                print(src)
                                 photo_links_list.append(src)
+    except Exception as ex:
+        print(ex)
+
     new_images_name = list()
     for photo_url in photo_links_list:
         response = requests.get(photo_url)
         splitted_url = photo_url.split("/")
-        print(splitted_url)
-        image_name = splitted_url[6]
+        image_name = max(splitted_url, key=len)
+        # print(image_name)
 
         if response.status_code == requests.codes.ok:
-
             fp = BytesIO()
             fp.write(response.content)
-            file_name = splitted_url[6]
+            file_name = image_name
             file_name = file_name + ".jpg"
             new_images_name.append(image_name)
 
@@ -108,8 +154,10 @@ def save_post_photos(attachments, post_id):
                 image_object.delete()
             except Exception as ex:
                 print(ex)
+    print(old_photos_name)
 
 
+# @shared_task
 def save_comments(comments, post_id):
     comment_data = comments.get("data")
 

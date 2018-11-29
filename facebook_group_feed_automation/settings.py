@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    "celery",
     "rest_framework",
 
     "read_feed.apps.ReadFeedConfig",
@@ -111,6 +112,10 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
+
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+
 
 LANGUAGE_CODE = 'en-us'
 
