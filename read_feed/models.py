@@ -44,6 +44,7 @@ class Comment(models.Model):
 class PostPhoto(models.Model):
     post = models.ForeignKey(Post, verbose_name="Post", on_delete=models.CASCADE)
     photo = models.ImageField("Post photo")
+    name = models.CharField(max_length=250)
     is_deleted = models.BooleanField(default=False)
 
 
