@@ -12,7 +12,7 @@ from celery import shared_task
 
 from .models import Comment, CommentPhoto, Post, PostPhoto, FBUser
 
-USER_ACCESS_TOKEN = 'EAAFIGgZC66zIBAJKXYARnktZBOiub8Q3GSIckOiTuXrJAhnNAs4bdNeNqRu37aqkrjjvzZBKTfRMWVvqsv2MSowvOXT2glZCeG1tjrvtqQmfNvKRdXTrsCph2cheRARZCkDl3CBRvZBTbfEX3DJdLAB7kLRH5poVynjlB5XN1AXUOkTfXre7CnC8m0KR5fJK4ZD'
+USER_ACCESS_TOKEN = 'EAAFIGgZC66zIBAJcxHiIUPiFZAzj88H3jrPXPiVc6H3NrKbOxggj2M7ZA4iYFiBZC3ZBCKedY7CdyVeK1Aqm2BheZBwP75ZBYS1q1ioGxX0oMFEzyUYNLcZCCM5Wl8snAiKV5Jr6wst6HOsunS1QK92f0rEP2LjghVhZCFyx3XETGSEZCJNLvv8b9mRJgSQZC2H5aYZD'
 parameters = {"access_token": USER_ACCESS_TOKEN}
 GROUP_ID = '1251085764934174'
 group_url = 'https://graph.facebook.com/{}/feed/?fields=id,from,message,created_time, updated_time, link,attachments,comments'.format(
@@ -25,6 +25,7 @@ url = "https://graph.facebook.com/oauth/access_token?grant_type=" \
       (app_id, app_secret)
 
 
+@shared_task
 def start_saving_process():
     response = requests.get(url=group_url, params=parameters)
     data_dict = json.loads(response.content.decode("utf-8"))
@@ -33,20 +34,19 @@ def start_saving_process():
     # pprint(data)
 
     for single_post in data:
-        post = save_post(single_post)
+        post_id = save_post(single_post)
 
-        if not post:
+        if not post_id:
             continue
 
         comments = single_post.get("comments")
         if comments:
-            save_comments(comments, post.id)
+            save_comments(comments, post_id)
 
         if single_post.get("attachments"):
-            save_post_photos(single_post.get("attachments"), post.id)
+            save_post_photos(single_post.get("attachments"), post_id)
 
 
-# @shared_task
 def save_post(post_data):
     message = post_data.get("message")
     user = post_data.get("from")
@@ -84,10 +84,10 @@ def save_post(post_data):
                            created_time=created_time,
                            updated_time=updated_time)
         post_object.save()
-    return post_object
+    return post_object.id
 
 
-# @shared_task
+
 def save_post_photos(attachments, post_id):
     photo_queryset = PostPhoto.objects.filter(post_id=post_id)
     old_photos_name = [i.name for i in photo_queryset]
@@ -151,13 +151,14 @@ def save_post_photos(attachments, post_id):
         if i not in new_images_name:
             try:
                 image_object = PostPhoto.objects.get(name=i)
-                image_object.delete()
+                image_object.is_deleted=True
+                image_object.save()
             except Exception as ex:
                 print(ex)
     print(old_photos_name)
 
 
-# @shared_task
+
 def save_comments(comments, post_id):
     comment_data = comments.get("data")
 

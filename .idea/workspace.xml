@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8afc15b-6952-48e8-9695-890561c192dc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/facebook_group_feed_automation/celery.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/facebook_group_feed_automation/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/facebook_group_feed_automation/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/facebook_group_feed_automation/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/facebook_group_feed_automation/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/46350396_1956645924372875_2579852044273713152_o.jpg_nc_cat104_nc_htscontent.xxoh1999bf9e_GnpkGDA.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/47232886_1974303212607146_8566330010086932480_n.jpg_nc_cat102_nc_htscontent.xxohcb33d766_ncT20Jt.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/read_feed/migrations/0004_auto_20181129_0802.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/read_feed/migrations/0005_auto_20181129_0804.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/read_feed/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/read_feed/tasks.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/read_feed/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/read_feed/views.py" afterDir="false" />
     </list>
@@ -29,8 +24,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/facebook_group_feed_automation/settings.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="287">
-                  <caret line="121" column="17" lean-forward="true" selection-start-line="121" selection-start-column="17" selection-end-line="121" selection-end-column="17" />
+                <state relative-caret-position="376">
+                  <caret line="129" selection-start-line="129" selection-end-line="129" />
                 </state>
               </provider>
             </entry>
@@ -38,7 +33,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/read_feed/admin.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="135">
+                <state relative-caret-position="105">
                   <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
                   <folding>
                     <element signature="e#0#32#0" expanded="true" />
@@ -50,8 +45,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/read_feed/views.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="148">
-                  <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="35" selection-end-column="75" />
+                <state relative-caret-position="182">
+                  <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" selection-end-column="34" />
                   <folding>
                     <element signature="e#0#15#0" expanded="true" />
                   </folding>
@@ -59,16 +54,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/read_feed/tests.py">
-              <provider selected="true" editor-type-id="text-editor" />
-            </entry>
-          </file>
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/read_feed/tasks.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="554">
-                  <caret line="44" column="42" lean-forward="true" selection-start-line="44" selection-start-column="42" selection-end-line="44" selection-end-column="42" />
+                <state relative-caret-position="255">
+                  <caret line="17" column="57" selection-start-line="17" selection-start-column="57" selection-end-line="17" selection-end-column="125" />
                   <folding>
                     <element signature="e#0#56#0" expanded="true" />
                   </folding>
@@ -91,8 +81,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/facebook_group_feed_automation/__init__.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="210">
-                  <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+                <state relative-caret-position="300">
+                  <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
                   <folding>
                     <element signature="e#0#56#0" expanded="true" />
                   </folding>
@@ -119,7 +109,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/read_feed/models.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="209">
+                <state relative-caret-position="475">
                   <caret line="39" column="22" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
                 </state>
               </provider>
@@ -163,7 +153,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="108" />
     <option name="y" value="405" />
     <option name="width" value="1340" />
@@ -265,17 +255,20 @@
       <workItem from="1543410695642" duration="14277000" />
       <workItem from="1543473270537" duration="7284000" />
       <workItem from="1543493932848" duration="120000" />
-      <workItem from="1543494072414" duration="8993000" />
+      <workItem from="1543494072414" duration="9523000" />
+      <workItem from="1543503784495" duration="34000" />
+      <workItem from="1543566476496" duration="6300000" />
+      <workItem from="1543592948560" duration="5000000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31672000" />
+    <option name="totallyTimeSpent" value="43536000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
+    <frame x="0" y="27" width="1920" height="1053" extended-state="7" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22516198" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.05939525" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -289,7 +282,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50053996" side_tool="true" weight="0.4025375" />
-      <window_info active="true" anchor="bottom" id="manage.py@facebook_group_feed_automation" order="11" sideWeight="0.49946004" visible="true" weight="0.28950405" />
+      <window_info active="true" anchor="bottom" id="manage.py@facebook_group_feed_automation" order="11" sideWeight="0.49946004" visible="true" weight="0.20991926" />
       <window_info anchor="bottom" id="Terminal" order="12" />
       <window_info anchor="bottom" id="Python Console" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -312,16 +305,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/media/access_tokengrant_typeclient_credentialsclient_id360751751162674client_secret39ed89dcc91_9NLwazP.jpg" />
     <entry file="file://$PROJECT_DIR$/media/access_tokengrant_typeclient_credentialsclient_id360751751162674client_secret39ed89dcc91_iCt4LrY.jpg" />
-    <entry file="file://$PROJECT_DIR$/read_feed/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/facebook_group_feed_automation/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -332,23 +315,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/read_feed/models.py">
+    <entry file="file://$PROJECT_DIR$/read_feed/migrations/0004_auto_20181129_0802.py" />
+    <entry file="file://$PROJECT_DIR$/read_feed/migrations/0005_auto_20181129_0804.py" />
+    <entry file="file://$PROJECT_DIR$/read_feed/tests.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/read_feed/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="39" column="22" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
+        <state relative-caret-position="105">
+          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/read_feed/migrations/0004_auto_20181129_0802.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/read_feed/migrations/0005_auto_20181129_0804.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/facebook_group_feed_automation/settings.py">
+    <entry file="file://$PROJECT_DIR$/read_feed/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="121" column="17" lean-forward="true" selection-start-line="121" selection-start-column="17" selection-end-line="121" selection-end-column="17" />
+        <state relative-caret-position="90">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/read_feed/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="39" column="22" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -362,33 +357,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/read_feed/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/read_feed/tests.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/facebook_group_feed_automation/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+        <state relative-caret-position="300">
+          <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
           <folding>
             <element signature="e#0#56#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/facebook_group_feed_automation/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="129" selection-start-line="129" selection-end-line="129" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/read_feed/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="35" selection-end-column="75" />
+        <state relative-caret-position="182">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" selection-end-column="34" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
@@ -397,8 +386,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/read_feed/tasks.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="554">
-          <caret line="44" column="42" lean-forward="true" selection-start-line="44" selection-start-column="42" selection-end-line="44" selection-end-column="42" />
+        <state relative-caret-position="255">
+          <caret line="17" column="57" selection-start-line="17" selection-start-column="57" selection-end-line="17" selection-end-column="125" />
           <folding>
             <element signature="e#0#56#0" expanded="true" />
           </folding>

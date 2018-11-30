@@ -6,10 +6,16 @@ from .celery import app as celery_app
 
 __all__ = ('celery_app',)
 
+# CELERY_BEAT_SCHEDULE = {
+#     'task-number-one': {
+#         'task': 'read_feed.tasks.test',
+#         'schedule': crontab(minute="*/1")
+#     },
+# }
+
 celery_app.conf.beat_schedule = {
-    'add-every-monday-morning': {
-        'task': 'tasks.start_saving_process',
-        'schedule': crontab(minute=1),
-        # 'args': (16, 16),
+    'start_saving_process': {
+        'task': 'read_feed.tasks.start_saving_process',
+        'schedule': crontab(minute="*/1"),
     },
 }

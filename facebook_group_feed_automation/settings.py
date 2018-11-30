@@ -116,6 +116,17 @@ AUTH_PASSWORD_VALIDATORS = [
 CELERY_BROKER_URL = 'redis://localhost:6379/0'
 CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 
+from celery.schedules import crontab
+from datetime import timedelta
+
+d = timedelta(seconds=1)
+#
+# CELERY_BEAT_SCHEDULE = {
+#     'test': {
+#         'task': 'read_feed.tasks.test',
+#         'schedule': crontab(minute="*/1")
+#     },
+# }
 
 LANGUAGE_CODE = 'en-us'
 
