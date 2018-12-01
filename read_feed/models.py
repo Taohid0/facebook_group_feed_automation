@@ -12,7 +12,7 @@ class FBUser(models.Model):
 
 
 class Post(models.Model):
-    fbuser = models.ForeignKey(FBUser, verbose_name="Facebook User", on_delete=models.CASCADE)
+    fbuser = models.ForeignKey(FBUser, verbose_name="Facebook User", null=True, blank=True, on_delete=models.CASCADE)
     post_id = models.CharField("Post ID", max_length=50, unique=True)
     message = models.TextField("Post message", null=True, blank=True)
     post_link = models.URLField(max_length=250, null=True, blank=True)
@@ -49,6 +49,6 @@ class PostPhoto(models.Model):
 
 
 class CommentPhoto(models.Model):
-    comment = models.ForeignKey(Comment, verbose_name="Comment", on_delete=models.CASCADE)
+    comment = models.ForeignKey(Comment, verbose_name="Comment", null=True, blank=True, on_delete=models.CASCADE)
     photo = models.ImageField("Comment Photo")
     is_deleted = models.BooleanField(default=False)

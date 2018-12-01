@@ -16,6 +16,6 @@ __all__ = ('celery_app',)
 celery_app.conf.beat_schedule = {
     'start_saving_process': {
         'task': 'read_feed.tasks.start_saving_process',
-        'schedule': crontab(minute="*/1"),
+        'schedule': crontab(minute="*/5"),
     },
 }

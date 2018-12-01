@@ -12,7 +12,7 @@ from celery import shared_task
 
 from .models import Comment, CommentPhoto, Post, PostPhoto, FBUser
 
-USER_ACCESS_TOKEN = 'EAAFIGgZC66zIBAJcxHiIUPiFZAzj88H3jrPXPiVc6H3NrKbOxggj2M7ZA4iYFiBZC3ZBCKedY7CdyVeK1Aqm2BheZBwP75ZBYS1q1ioGxX0oMFEzyUYNLcZCCM5Wl8snAiKV5Jr6wst6HOsunS1QK92f0rEP2LjghVhZCFyx3XETGSEZCJNLvv8b9mRJgSQZC2H5aYZD'
+USER_ACCESS_TOKEN = 'EAAFIGgZC66zIBADZAQcDcDQWLCcW9ZBaJ5HsoAt6kuYTv6xl55CIo1wggBZCNLluaDQ3pnYmNRdp1ZC4pHJzd2u6E0Bq8YYAhpTZAG2rJTp2sYLXNMn1D1LdhZBeBYIQr8wBZC0pPeQjinOBZCT9AiNUFevCdCM7jfSrmeUAsWe22hrZBrKkKfAQPh8svgXcySZCrMZD'
 parameters = {"access_token": USER_ACCESS_TOKEN}
 GROUP_ID = '1251085764934174'
 group_url = 'https://graph.facebook.com/{}/feed/?fields=id,from,message,created_time, updated_time, link,attachments,comments'.format(
@@ -58,16 +58,16 @@ def save_post(post_data):
     if not message:
         return
 
-    if not user:
-        return
+    if user:
+        user_id = user.get("id")
+        name = user.get("name")
 
-    user_id = user.get("id")
-    name = user.get("name")
-
-    fbuser_object = FBUser.objects.filter(user_id=user_id).first()
-    if not fbuser_object:
-        fbuser_object = FBUser(user_id=user_id, user_name=name)
-        fbuser_object.save()
+        fbuser_object = FBUser.objects.filter(user_id=user_id).first()
+        if not fbuser_object:
+            fbuser_object = FBUser(user_id=user_id, user_name=name)
+            fbuser_object.save()
+    else:
+        fbuser_object = None
 
     post_object = Post.objects.filter(post_id=post_id).first()
 
@@ -85,7 +85,6 @@ def save_post(post_data):
                            updated_time=updated_time)
         post_object.save()
     return post_object.id
-
 
 
 def save_post_photos(attachments, post_id):
@@ -151,12 +150,11 @@ def save_post_photos(attachments, post_id):
         if i not in new_images_name:
             try:
                 image_object = PostPhoto.objects.get(name=i)
-                image_object.is_deleted=True
+                image_object.is_deleted = True
                 image_object.save()
             except Exception as ex:
                 print(ex)
     print(old_photos_name)
-
 
 
 def save_comments(comments, post_id):
@@ -172,19 +170,21 @@ def save_comments(comments, post_id):
         if commenter:
             commenter_id = commenter.get("id")
             commenter_name = commenter.get("name")
-            created_time = comment.get("created_time")
-            comment_id = comment.get("id")
-            message = comment.get("message")
-
-            if not message:
-                continue
-
             user = FBUser.objects.filter(user_id=commenter_id).first()
             if not user:
                 user = FBUser(user_id=commenter_id, user_name=commenter_name)
                 user.save()
+        else:
+            user = None
 
-            comment_object = Comment(post=post_object, fbuser=user, comment_id=comment_id, message=message,
-                                     created_time=created_time,
-                                     updated_time=created_time)
-            comment_object.save()
+        created_time = comment.get("created_time")
+        comment_id = comment.get("id")
+        message = comment.get("message")
+
+        if not message:
+            continue
+
+        comment_object = Comment(post=post_object, fbuser=user, comment_id=comment_id, message=message,
+                                 created_time=created_time,
+                                 updated_time=created_time)
+        comment_object.save()
