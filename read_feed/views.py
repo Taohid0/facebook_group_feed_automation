@@ -7,7 +7,7 @@ from rest_framework.response import Response
 
 from .tasks import *
 
-USER_ACCESS_TOKEN = 'EAAFIGgZC66zIBAPbArATdaTpA1DM8R3L48NfbKYLPrTi7bqohY4G4ARi3irNYdYnr553UZBTxAdN1NUjt9dytINcIsH4WkvWunCXM9ZC2QLzjzCnxP5ooUkZAYOqDc5gFhrXrVdD9eh7L4HUDkEY3CxW76E0UyabPN6walnouZCVUrUO6WA0qdxXSQg5gwlMZD'
+USER_ACCESS_TOKEN = 'EAAFIGgZC66zIBAMQIMVDuZAAlZANeXBLmlpCnGIflGZAk5E2EMIZBpvE0Qg1YiKUBAAj292b9zGiNqIMwIzM71s4vBiZChNpRvfyEyedMwNib999TZADHSkMZC4iDGugetYDdK6OldMwKZA1zXuTK48pYPrK0wVrmFm1S028796zYHZBgGmAZAzh4tMc4A8jUQI5KYZD'
 parameters = {"access_token": USER_ACCESS_TOKEN}
 GROUP_ID = '1251085764934174'
 group_url = 'https://graph.facebook.com/{}/feed/?fields=id,from,message,created_time, updated_time, link,attachments,comments'.format(

@@ -12,17 +12,7 @@ from celery import shared_task
 
 from .models import Comment, CommentPhoto, Post, PostPhoto, FBUser
 
-USER_ACCESS_TOKEN = 'EAAFIGgZC66zIBADZAQcDcDQWLCcW9ZBaJ5HsoAt6kuYTv6xl55CIo1wggBZCNLluaDQ3pnYmNRdp1ZC4pHJzd2u6E0Bq8YYAhpTZAG2rJTp2sYLXNMn1D1LdhZBeBYIQr8wBZC0pPeQjinOBZCT9AiNUFevCdCM7jfSrmeUAsWe22hrZBrKkKfAQPh8svgXcySZCrMZD'
-parameters = {"access_token": USER_ACCESS_TOKEN}
-GROUP_ID = '1251085764934174'
-group_url = 'https://graph.facebook.com/{}/feed/?fields=id,from,message,created_time, updated_time, link,attachments,comments'.format(
-    GROUP_ID)
 
-app_id = '360751751162674'
-app_secret = '39ed89dcc91c44180b249230d31bc357'
-url = "https://graph.facebook.com/oauth/access_token?grant_type=" \
-      "client_credentials&client_id=%s&client_secret=%s" % \
-      (app_id, app_secret)
 
 
 @shared_task
