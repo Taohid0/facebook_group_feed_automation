@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8afc15b-6952-48e8-9695-890561c192dc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/read_feed/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/read_feed/tasks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/read_feed/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/read_feed/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,8 +53,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/read_feed/tasks.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="173">
-                  <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="25" />
+                <state relative-caret-position="368">
+                  <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
                   <folding>
                     <element signature="e#0#56#0" expanded="true" />
                   </folding>
@@ -258,12 +256,12 @@
       <workItem from="1543566476496" duration="6300000" />
       <workItem from="1543592948560" duration="5000000" />
       <workItem from="1543650528699" duration="2161000" />
-      <workItem from="1543666935148" duration="2232000" />
+      <workItem from="1543666935148" duration="3587000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47929000" />
+    <option name="totallyTimeSpent" value="49284000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
@@ -387,8 +385,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/read_feed/tasks.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="25" />
+        <state relative-caret-position="368">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
           <folding>
             <element signature="e#0#56#0" expanded="true" />
           </folding>
